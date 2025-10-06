@@ -23,5 +23,12 @@ public class UserProfileConfiguration: BaseEntityConfiguration<UserProfile>
         builder.Property(profile => profile.Bio).HasColumnName("Biography").HasMaxLength(600).IsRequired();
 
         builder.Property(profile => profile.ProfileImageUrl).HasColumnName("ProfileImage");
+        
+        builder.OwnsOne(u => u.Address, address =>
+        {
+            address.Property(a => a.City).HasMaxLength(20).HasColumnName("City");
+            address.Property(a => a.Country).HasMaxLength(20).HasColumnName("Country");
+            address.Property(a => a.Street).HasMaxLength(100).HasColumnName("Street");
+        });
     }
 }

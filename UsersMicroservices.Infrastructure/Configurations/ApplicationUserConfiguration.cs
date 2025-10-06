@@ -12,9 +12,9 @@ public class ApplicationUserConfiguration: BaseEntityConfiguration<ApplicationUs
 
         builder.ToTable("Users");
         
-        builder.HasIndex(x => x.Email);
-        builder.HasIndex(x => x.PhoneNumber);
-        builder.HasIndex(x => x.Gender);
+        builder.HasIndex(x => x.Email).IsUnique();
+        builder.HasIndex(x => x.PhoneNumber).IsUnique();
+        builder.HasIndex(x => x.Gender).IsUnique();
         
         builder.Property(u => u.Email).HasMaxLength(100).HasColumnName("Email").IsRequired();
         

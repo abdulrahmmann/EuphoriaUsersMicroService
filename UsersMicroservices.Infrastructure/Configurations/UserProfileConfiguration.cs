@@ -15,13 +15,13 @@ public class UserProfileConfiguration: BaseEntityConfiguration<UserProfile>
         builder.HasIndex(x => x.FullName);
         
         builder.Property(profile => profile.FirstName).HasColumnName("FirstName").HasMaxLength(10).IsRequired();
-        
-        builder.Property(profile => profile.SecondName).HasColumnName("SecondName").HasMaxLength(10).IsRequired();
+
+        builder.Property(profile => profile.SecondName).HasColumnName("SecondName").HasMaxLength(10);
         
         builder.Property(profile => profile.LastName).HasColumnName("LastName").HasMaxLength(10).IsRequired();
         
         builder.Property(profile => profile.Bio).HasColumnName("Biography").HasMaxLength(600).IsRequired();
-        
-        builder.Property(profile => profile.ProfileImageUrl).HasColumnName("ProfileImage").IsRequired();
+
+        builder.Property(profile => profile.ProfileImageUrl).HasColumnName("ProfileImage");
     }
 }

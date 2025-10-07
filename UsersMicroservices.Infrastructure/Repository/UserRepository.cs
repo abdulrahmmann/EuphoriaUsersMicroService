@@ -13,7 +13,7 @@ public class UserRepository : IUserRepository
     {
         _dbContext = dbContext;
     }
-
+    
     public async Task<IEnumerable<ApplicationUser>> GetUsers()
     {
         return await _dbContext.ApplicationUser.ToListAsync();

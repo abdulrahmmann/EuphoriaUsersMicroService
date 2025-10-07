@@ -19,5 +19,12 @@
       <ProjectReference Include="..\UsersMicroservices.Domain\UsersMicroservices.Domain.csproj" />
       <ProjectReference Include="..\UsersMicroservices.Infrastructure\UsersMicroservices.Infrastructure.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Mapping\" />
+      <Folder Include="UserProfilesFeature\Command\" />
+      <Folder Include="UserProfilesFeature\Query\" />
+      <Folder Include="UsersFeature\Command\" />
+    </ItemGroup>
     
 </Project>

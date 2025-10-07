@@ -36,4 +36,14 @@ public class ApplicationUser : Entity<int>
     /// Navigation property that references the user's extended profile information.
     /// </summary>
     public UserProfile UserProfile { get; private set; } = null!;
+
+    private ApplicationUser() { }
+    public ApplicationUser(string email, string password, string phoneNumber, string username, string gender)
+    {
+        Email = email;
+        Password = password;
+        PhoneNumber = phoneNumber;
+        Username = username;
+        Gender = gender;
+    }
 }

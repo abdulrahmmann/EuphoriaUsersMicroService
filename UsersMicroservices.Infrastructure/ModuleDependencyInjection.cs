@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UsersMicroservices.Domain.IRepository;
 using UsersMicroservices.Infrastructure.Context;
+using UsersMicroservices.Infrastructure.Repository;
 
 namespace UsersMicroservices.Infrastructure;
 
@@ -19,13 +21,14 @@ public static class ModuleDependencyInjection
             .Replace("$POSTGRES_USERNAME", "POSTGRES_USERNAME")
             .Replace("$POSTGRES_PASSWORD", "POSTGRES_PASSWORD");
             
-        
-        // Register Repository
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseNpgsql(connectionString);
         });
+
         
+        // Register Repository
+        services.AddScoped<IUserRepository, UserRepository>();
         
         return services;
     }

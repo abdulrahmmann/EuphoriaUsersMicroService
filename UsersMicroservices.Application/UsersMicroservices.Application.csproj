@@ -11,6 +11,7 @@
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
         <PackageReference Include="Mapster" Version="7.4.2-pre02" />
         <PackageReference Include="Mapster.DependencyInjection" Version="1.0.3-pre02" />
+        <PackageReference Include="MediatR" Version="13.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.9" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.9" />
     </ItemGroup>
@@ -21,10 +22,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Mapping\" />
       <Folder Include="UserProfilesFeature\Command\" />
       <Folder Include="UserProfilesFeature\Query\" />
+      <Folder Include="UsersFeature\CommandHandler\" />
       <Folder Include="UsersFeature\Command\" />
+      <Folder Include="UsersFeature\QueryHandler\" />
     </ItemGroup>
     
 </Project>

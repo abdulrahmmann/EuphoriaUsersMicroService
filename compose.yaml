@@ -1,0 +1,44 @@
+﻿services:
+  usersmicroservices.api:
+    image: abdulra7manmustafa/euphoria-users-microservices
+    build:
+      context: .
+      dockerfile: UsersMicroservices.Api/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: EuphoriaUsers
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: admin
+
+    depends_on:
+      - postgresql
+    
+    networks:
+      euphoria_network:
+           
+  postgresql:
+    image: postgres:18
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: EuphoriaUsers
+    
+    ports:
+      - "5432:5432"
+        
+    networks:
+      euphoria_network:
+        
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+        
+volumes:
+  postgres_data:
+    
+networks:
+  euphoria_network:
+    driver: bridge

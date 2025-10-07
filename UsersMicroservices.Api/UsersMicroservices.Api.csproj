@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>UsersMicroservices</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,6 +31,12 @@
       <ProjectReference Include="..\UsersMicroservices.Application\UsersMicroservices.Application.csproj" />
       <ProjectReference Include="..\UsersMicroservices.Domain\UsersMicroservices.Domain.csproj" />
       <ProjectReference Include="..\UsersMicroservices.Infrastructure\UsersMicroservices.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>

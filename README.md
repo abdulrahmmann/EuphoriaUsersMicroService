@@ -9,6 +9,6 @@ API → Minimal API / Controllers exposing endpoints.
 
 Domain → Core business logic & entities and Value Objects (ApplicationUser, UserProfile).
 
-Application → Business logic and handling data and implementing vertical slice architecture style: FluentValidation, DTOs, Mapping using Mapster.
+Application → CQRS handlers using MediatR, validation data using FluentValidation and Mapping between entity and dto using Mapster.
 
 Infrastructure → EF Core configurations & repositories & Database Migrations.

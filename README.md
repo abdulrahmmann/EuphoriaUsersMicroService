@@ -7,8 +7,10 @@ Based Structure:
 
 API → Minimal API / Controllers exposing endpoints.
 
-Domain → Core business logic & entities and Value Objects (ApplicationUser, UserProfile).
+Domain → Core business logic & Interfaces, entities and Value Objects (ApplicationUser, UserProfile).
 
 Application → CQRS handlers using MediatR, validation data using FluentValidation and Mapping between entity and dto using Mapster.
 
 Infrastructure → EF Core configurations & repositories & Database Migrations.
+
+Dockerized: Includes Dockerfile and Compose setup for isolated container deployment.

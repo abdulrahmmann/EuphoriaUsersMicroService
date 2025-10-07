@@ -16,7 +16,5 @@ public class UserMappingConfig: IRegister
             .Map(dest => dest.Gender, src => src.Gender)
             .Ignore(dest => dest.Token!)
             .Ignore(dest => dest.Success!);
-
-
     }
 }

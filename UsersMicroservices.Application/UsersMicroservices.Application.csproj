@@ -22,11 +22,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="UserProfilesFeature\CommandHandler\" />
       <Folder Include="UserProfilesFeature\Command\" />
+      <Folder Include="UserProfilesFeature\QueryHandler\" />
       <Folder Include="UserProfilesFeature\Query\" />
       <Folder Include="UsersFeature\CommandHandler\" />
       <Folder Include="UsersFeature\Command\" />
-      <Folder Include="UsersFeature\QueryHandler\" />
     </ItemGroup>
     
 </Project>

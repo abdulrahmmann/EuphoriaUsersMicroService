@@ -13,13 +13,13 @@ public static class ModuleDependencyInjection
     {
         // Register Db Context
         var connectionStringTemplate = configuration.GetConnectionString("PostgresConnection")!;
-        
+
         var connectionString = connectionStringTemplate
-            .Replace("$POSTGRES_HOST", "POSTGRES_HOST")
-            .Replace("$POSTGRES_PORT", "POSTGRES_PORT")
-            .Replace("$POSTGRES_DB", "POSTGRES_DB")
-            .Replace("$POSTGRES_USERNAME", "POSTGRES_USERNAME")
-            .Replace("$POSTGRES_PASSWORD", "POSTGRES_PASSWORD");
+            .Replace("$POSTGRES_HOST", Environment.GetEnvironmentVariable("POSTGRES_HOST") ?? "postgres")
+            .Replace("$POSTGRES_PORT", Environment.GetEnvironmentVariable("POSTGRES_PORT") ?? "5432")
+            .Replace("$POSTGRES_DB", Environment.GetEnvironmentVariable("POSTGRES_DB") ?? "EuphoriaUsers")
+            .Replace("$POSTGRES_USERNAME", Environment.GetEnvironmentVariable("POSTGRES_USERNAME") ?? "postgres")
+            .Replace("$POSTGRES_PASSWORD", Environment.GetEnvironmentVariable("POSTGRES_PASSWORD") ?? "admin");
             
         services.AddDbContext<ApplicationDbContext>(options =>
         {

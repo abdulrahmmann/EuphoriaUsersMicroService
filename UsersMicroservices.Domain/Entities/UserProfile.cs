@@ -26,7 +26,7 @@ public class UserProfile : Entity<int>
     /// <summary>
     /// The user's full name, automatically combined from first, second, and last names.
     /// </summary>
-    public string FullName => $"{FirstName} {SecondName} {LastName}".Trim();
+    public string FullName { get; private set; } = null!;
 
     /// <summary>
     /// URL of the user's profile image or avatar (optional).
@@ -52,4 +52,25 @@ public class UserProfile : Entity<int>
     /// Navigation property for the related <see cref="ApplicationUser"/>.
     /// </summary>
     public ApplicationUser ApplicationUser { get; private set; } = null!;
+
+    private UserProfile() { }
+
+    public UserProfile(string firstName, string? secondName, string lastName, string fullName, string? profileImageUrl, string bio, Address address, int userId)
+    {
+        FirstName = firstName;
+        SecondName = secondName;
+        LastName = lastName;
+        FullName = fullName;
+        ProfileImageUrl = profileImageUrl;
+        Bio = bio;
+        Address = address;
+        UserId = userId;
+
+        UpdateFullName();
+    }
+    
+    private void UpdateFullName()
+    {
+        FullName = $"{FirstName} {SecondName} {LastName}".Replace("  ", " ").Trim();
+    }
 }

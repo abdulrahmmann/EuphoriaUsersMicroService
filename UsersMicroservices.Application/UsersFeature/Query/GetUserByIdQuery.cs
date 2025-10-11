@@ -3,4 +3,4 @@ using UsersMicroservices.Domain.CQRS;
 
 namespace UsersMicroservices.Application.UsersFeature.Query;
 
-public record GetUserByIdQuery(int UserId): IQuery<AuthenticationResponse>;
+public record GetUserByIdQuery(int UserId): IQuery<UserDto>;

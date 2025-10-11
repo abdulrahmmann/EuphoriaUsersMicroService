@@ -6,7 +6,7 @@ using UsersMicroservices.Domain.IRepository;
 
 namespace UsersMicroservices.Application.UsersFeature.QueryHandler;
 
-public class GetUserByIdQueryHandler: IQueryHandler<GetUserByIdQuery, AuthenticationResponse>
+public class GetUserByIdQueryHandler: IQueryHandler<GetUserByIdQuery, UserDto>
 {
     #region Field Instance
     private readonly IUserRepository _repository;
@@ -21,13 +21,13 @@ public class GetUserByIdQueryHandler: IQueryHandler<GetUserByIdQuery, Authentica
     }
     #endregion
     
-    public async Task<AuthenticationResponse> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
+    public async Task<UserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
     {
         try
         {
             var usersRepository = await _repository.GetUserById(request.UserId);
 
-            var usersMap = _mapper.Map<AuthenticationResponse>(usersRepository);
+            var usersMap = _mapper.Map<UserDto>(usersRepository);
 
             return usersMap;
         }

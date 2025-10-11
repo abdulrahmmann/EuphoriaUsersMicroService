@@ -1,6 +1,6 @@
 ﻿namespace UsersMicroservices.Application.DTOs;
 
-public record AuthenticationResponse(
+public record UserDto(
     int? UserId,
     string? Email,
     string? PhoneNumber,
@@ -9,7 +9,7 @@ public record AuthenticationResponse(
     string? Token,
     bool Success)
 {
-    public AuthenticationResponse(): this(default, default, default, default, default, default, default)
+    public UserDto(): this(default, default, default, default, default, default, default)
     {
         
     }

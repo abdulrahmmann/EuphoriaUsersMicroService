@@ -3,4 +3,4 @@ using UsersMicroservices.Domain.CQRS;
 
 namespace UsersMicroservices.Application.UsersFeature.Query;
 
-public record GetUsersQuery(): IQuery<IEnumerable<AuthenticationResponse>>;
+public record GetUsersQuery(): IQuery<IEnumerable<UserDto>>;
